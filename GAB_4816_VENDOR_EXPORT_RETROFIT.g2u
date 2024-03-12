@@ -1,0 +1,585 @@
+Program.Sub.ScreenSU.Start
+Gui.frmVendorRFQ..Create(BaseForm)
+Gui.frmVendorRFQ..Caption("Quick Export / Import Vendor RFQ")
+Gui.frmVendorRFQ..Size(15360,7620)
+Gui.frmVendorRFQ..MinX(0)
+Gui.frmVendorRFQ..MinY(0)
+Gui.frmVendorRFQ..Position(0,0)
+Gui.frmVendorRFQ..BackColor(-2147483633)
+Gui.frmVendorRFQ..MousePointer(0)
+Gui.frmVendorRFQ..Event(UnLoad,frmVendorRFQ_UnLoad)
+Gui.frmVendorRFQ..AlwaysOnTop(False)
+Gui.frmVendorRFQ..FontName("Tahoma")
+Gui.frmVendorRFQ..FontSize(8.25)
+Gui.frmVendorRFQ..ControlBox(True)
+Gui.frmVendorRFQ..MaxButton(True)
+Gui.frmVendorRFQ..MinButton(True)
+Gui.frmVendorRFQ..Moveable(True)
+Gui.frmVendorRFQ..Sizeable(True)
+Gui.frmVendorRFQ..ShowInTaskBar(True)
+Gui.frmVendorRFQ..TitleBar(True)
+Gui.frmVendorRFQ.cmdBrowse.Create(Button)
+Gui.frmVendorRFQ.cmdBrowse.Size(570,375)
+Gui.frmVendorRFQ.cmdBrowse.Position(3000,330)
+Gui.frmVendorRFQ.cmdBrowse.Caption("^")
+Gui.frmVendorRFQ.cmdBrowse.Event(Click,cmdBrowse_Click)
+Gui.frmVendorRFQ.cmdBrowse.Enabled(True)
+Gui.frmVendorRFQ.cmdBrowse.Visible(True)
+Gui.frmVendorRFQ.cmdBrowse.Zorder(0)
+Gui.frmVendorRFQ.cmdBrowse.FontName("Tahoma")
+Gui.frmVendorRFQ.cmdBrowse.FontSize(8.25)
+Gui.frmVendorRFQ.txtVendor.Create(TextBox,"",True,2715,300,0,165,360,True,0,"Arial",8,-2147483643,1)
+Gui.frmVendorRFQ.cmdCreateCSV.Create(Button)
+Gui.frmVendorRFQ.cmdCreateCSV.Size(1455,375)
+Gui.frmVendorRFQ.cmdCreateCSV.Position(165,870)
+Gui.frmVendorRFQ.cmdCreateCSV.Caption("Create CSV File")
+Gui.frmVendorRFQ.cmdCreateCSV.Event(Click,cmdCreateCSV_Click)
+Gui.frmVendorRFQ.cmdCreateCSV.Enabled(True)
+Gui.frmVendorRFQ.cmdCreateCSV.Visible(True)
+Gui.frmVendorRFQ.cmdCreateCSV.Zorder(0)
+Gui.frmVendorRFQ.cmdCreateCSV.FontName("Tahoma")
+Gui.frmVendorRFQ.cmdCreateCSV.FontSize(8.25)
+Gui.frmVendorRFQ.trvImport.Create(TreeView)
+Gui.frmVendorRFQ.trvImport.Size(3165,3510)
+Gui.frmVendorRFQ.trvImport.Position(165,3480)
+Gui.frmVendorRFQ.trvImport.Enabled(True)
+Gui.frmVendorRFQ.trvImport.Visible(True)
+Gui.frmVendorRFQ.trvImport.Zorder(0)
+Gui.frmVendorRFQ.trvImport.FontName("Tahoma")
+Gui.frmVendorRFQ.trvImport.FontSize(8.25)
+Gui.frmVendorRFQ.trvImport.Event(DragDropFile,dragdrop)
+Gui.frmVendorRFQ.trvImport.Event(DoubleClick,trvImport_DoubleClick)
+Gui.frmVendorRFQ.lbl1.Create(Label,"Select Quote Date and Expiry then Drag",True,2865,210,0,165,1755,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmVendorRFQ.lbl1.BorderStyle(0)
+Gui.frmVendorRFQ.gsgcVendorParts.Create(GsGridControl)
+Gui.frmVendorRFQ.gsgcVendorParts.Size(11340,6300)
+Gui.frmVendorRFQ.gsgcVendorParts.Position(3615,345)
+Gui.frmVendorRFQ.gsgcVendorParts.Enabled(True)
+Gui.frmVendorRFQ.gsgcVendorParts.Visible(True)
+Gui.frmVendorRFQ.gsgcVendorParts.Zorder(0)
+Gui.frmVendorRFQ.dtpQuoteDate.Create(DatePicker)
+Gui.frmVendorRFQ.dtpQuoteDate.Size(3120,285)
+Gui.frmVendorRFQ.dtpQuoteDate.Position(165,2355)
+Gui.frmVendorRFQ.dtpQuoteDate.Enabled(True)
+Gui.frmVendorRFQ.dtpQuoteDate.Visible(True)
+Gui.frmVendorRFQ.dtpQuoteDate.Zorder(0)
+Gui.frmVendorRFQ.dtpQuoteDate.CheckBox(False)
+Gui.frmVendorRFQ.dtpQuoteDate.FontName("Tahoma")
+Gui.frmVendorRFQ.dtpQuoteDate.FontSize(8.25)
+Gui.frmVendorRFQ.chkExclude.Create(CheckBox)
+Gui.frmVendorRFQ.chkExclude.Enabled(True)
+Gui.frmVendorRFQ.chkExclude.Visible(True)
+Gui.frmVendorRFQ.chkExclude.Zorder(0)
+Gui.frmVendorRFQ.chkExclude.Size(3195,300)
+Gui.frmVendorRFQ.chkExclude.Position(165,1365)
+Gui.frmVendorRFQ.chkExclude.Caption("Exclude Part Cross Ref Creation")
+Gui.frmVendorRFQ.chkExclude.FontName("Tahoma")
+Gui.frmVendorRFQ.chkExclude.FontSize(8.25)
+Gui.frmVendorRFQ.dtpExpire.Create(DatePicker)
+Gui.frmVendorRFQ.dtpExpire.Enabled(True)
+Gui.frmVendorRFQ.dtpExpire.Visible(True)
+Gui.frmVendorRFQ.dtpExpire.Zorder(0)
+Gui.frmVendorRFQ.dtpExpire.Size(1875,300)
+Gui.frmVendorRFQ.dtpExpire.Position(165,3060)
+Gui.frmVendorRFQ.dtpExpire.CheckBox(False)
+Gui.frmVendorRFQ.dtpExpire.FontName("Tahoma")
+Gui.frmVendorRFQ.dtpExpire.FontSize(8.25)
+Gui.frmVendorRFQ.chkExpire.Create(CheckBox)
+Gui.frmVendorRFQ.chkExpire.Enabled(True)
+Gui.frmVendorRFQ.chkExpire.Visible(True)
+Gui.frmVendorRFQ.chkExpire.Zorder(0)
+Gui.frmVendorRFQ.chkExpire.Size(1125,300)
+Gui.frmVendorRFQ.chkExpire.Position(2160,3075)
+Gui.frmVendorRFQ.chkExpire.Caption("No Expiry")
+Gui.frmVendorRFQ.chkExpire.FontName("Tahoma")
+Gui.frmVendorRFQ.chkExpire.FontSize(8.25)
+Gui.frmVendorRFQ.lblExpire.Create(Label,"Quote Expiration Date:",True,1665,195,0,165,2775,True,0,"Tahoma",8.25,,0,0)
+Gui.frmVendorRFQ.lblExpire.BorderStyle(0)
+Gui.frmVendorRFQ.lbl2.Create(Label,"and Drop completed CSV File below:",True,2640,210,0,165,2010,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmVendorRFQ.lbl2.BorderStyle(0)
+Gui.frmProcessing..Create(BaseForm)
+Gui.frmProcessing..Caption("Processing Records")
+Gui.frmProcessing..Size(5415,2055)
+Gui.frmProcessing..MinX(0)
+Gui.frmProcessing..MinY(0)
+Gui.frmProcessing..Position(0,0)
+Gui.frmProcessing..BackColor(-2147483633)
+Gui.frmProcessing..MousePointer(0)
+Gui.frmProcessing..AlwaysOnTop(False)
+Gui.frmProcessing..FontName("Tahoma")
+Gui.frmProcessing..FontSize(8.25)
+Gui.frmProcessing..ControlBox(True)
+Gui.frmProcessing..MaxButton(True)
+Gui.frmProcessing..MinButton(True)
+Gui.frmProcessing..Moveable(True)
+Gui.frmProcessing..Sizeable(True)
+Gui.frmProcessing..ShowInTaskBar(True)
+Gui.frmProcessing..TitleBar(True)
+Gui.frmProcessing.lbl1.Create(Label,"Processing Records:",True,1935,255,0,615,510,True,1,"Arial",8,-2147483633,0,0)
+Gui.frmProcessing.lbl1.BorderStyle(0)
+Gui.frmProcessing.lblRecords.Create(Label,"",True,1935,255,0,2505,510,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmProcessing.lblRecords.BorderStyle(0)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.global.sOldPart.Declare(string)
+v.global.foldquantity.Declare(float)
+v.global.sBuildData.Declare(string)
+v.Global.sFile.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Updated by Robert Cole 3/2022
+v.Local.dDate.Declare
+
+f.Intrinsic.Date.DateAdd("D",30,v.Ambient.Date,v.Local.dDate)
+gui.frmVendorRFQ.dtpExpire.Value(v.Local.dDate)
+
+'gui.frmVendorRFQ.trvImport.event("DRAGDROPFILE",DragDrop)
+gui.frmVendorRFQ.gsgcVendorParts.anchor(15)
+gui.frmVendorRFQ.chkExclude.Value("1")
+F.ODBC.Connection!CONX.Opencompanyconnection(90)
+gui.frmVendorRFQ..Show
+Program.Sub.Main.End
+
+Program.Sub.createTables.Start
+f.Data.DataTable.CreateFromSQL("dtInv","conx","SELECT DESCRIPTION, DESCRIPTION_2, DESCRIPTION_3, PART FROM V_INVENTORY_ALL",true)
+f.Data.DataTable.CreateFromSQL("dtVQT","conx","select A.PART, A.SEQ, A.QUANTITY,A.UNIT_PRICE AS 'CurrentPrice', B.VENDOR from VEND_QTE_LINES A LEFT JOIN VEND_QTE_HEADER B ON A.PART = B.PART AND A.SEQ = B.SEQ order by A.SEQ ASC",true)
+F.Data.DataTable.CreateFromSQL("dtVQH","conx","SELECT PART, VENDOR, INV_UM, PUR_UM, CONVERSION FROM V_VEND_QTE_HEADER",true)
+Program.Sub.createTables.End
+
+Program.Sub.cmdBrowse_Click.Start
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+V.local.ssql.declare(String)
+
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+v.Local.dDateMax.Declare(Date)
+v.Local.i.Declare(long)
+V.Local.SVALS.Declare(STRING)
+V.Local.SVALROWS.Declare(STRING)
+v.Local.j.Declare(long)
+V.Local.SMESSAGE.Declare(STRING)
+v.Local.sSearch.Declare(string)
+v.Local.sVendor.Declare(string)
+
+F.intrinsic.string.split("Vendor*!*Vendor Name","*!*",Variable.local.sTitles)
+F.intrinsic.string.split("2000*!*3000","*!*",Variable.local.iWidths)
+
+V.Local.ssql.set("SELECT Vendor, NAME_VENDOR FROM V_VENDOR_MASTER ")
+
+F.intrinsic.ui.browser("Select a Vendor",conx,v.Local.ssql,v.local.sTitles,v.local.iWidths,v.local.sRet)
+
+F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+F.intrinsic.control.else
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",v.Local.sret)
+	v.Local.sVendor.Set(v.Local.sRet(0))
+	GUI.frmVendorRFQ.txtVendor.Text(v.Local.sVendor)
+	f.Intrinsic.Control.If(v.DataTable.dt.Exists,=,true)
+		f.Data.DataTable.Close("dt")
+	f.Intrinsic.Control.EndIf
+
+	GUI.frmProcessing..Show
+	
+	'f.Intrinsic.String.Concat("{0} Part,Part,UM, Quote Date, Vendor#, Seq, Description,Description 2,Description 3, Quantity, Current Price, New Price",v.Ambient.NewLine,v.Local.sheader)
+	'pur_um, quote_date
+	v.Local.ssql.Set("SELECT mfg_part, part FROM V_INV_CROSS_REF AS TB1 WHERE VENDOR='{0}'")
+	f.Intrinsic.String.Build(v.Local.ssql,v.Local.sRet(0),v.Local.ssql)
+	f.data.datatable.createfromsql("dt","conx",v.Local.ssql,true)
+	f.Data.DataTable.AddColumn("dt","PUR_UM",string)
+	f.Data.DataTable.AddColumn("dt","QUOTE_DATE",string)
+	f.Data.DataTable.AddColumn("dt","VENDOR",string,V.Local.sVendor)
+	f.Data.DataTable.AddColumn("dt","SEQ",string)
+	f.Data.DataTable.AddColumn("dt","DESCRIPTION",string)
+	f.Data.DataTable.AddColumn("dt","DESCRIPTION_2",string)
+	f.Data.DataTable.AddColumn("dt","DESCRIPTION_3",string)
+	f.Data.DataTable.AddColumn("dt","Quantity",string)
+	f.Data.DataTable.AddColumn("dt","CurrentPrice",string)
+	f.Data.DataTable.AddColumn("dt","NewPrice",string)
+	f.Data.DataTable.AddColumn("dt","Sort_Code_1",string)
+	f.Data.DataTable.AddColumn("dt","Sort_Code_2",string)
+	f.Data.DataTable.AddColumn("dt","Comments",string)
+	f.Data.DataTable.AddColumn("dt","Select",boolean,true)
+	F.Intrinsic.Control.CallSub(createTables)
+
+	f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dt.RowCount--,1)
+		F.Intrinsic.String.Build("Record {0} of {1}",v.Local.i,v.DataTable.dt.RowCount,v.Local.SMESSAGE)
+		gui.frmProcessing.lblRecords.Caption(v.Local.SMESSAGE)
+		'Set descriptions
+		f.Intrinsic.String.Build("PART='{0}'",v.DataTable.dt(v.Local.i).PART!FIELDVAL,v.Local.sSearch)
+		f.Data.DataTable.Select("dtInv",v.Local.sSearch,v.local.sret)
+		f.Intrinsic.Control.If(v.Local.sret.Trim,=,"***NORETURN***")
+		f.Intrinsic.Control.Else
+			f.Intrinsic.string.Split(v.Local.sRet,"*!*",v.Local.sRet)
+			f.Data.datatable.SetValue("dt",v.Local.i,"DESCRIPTION",v.DataTable.dtInv(v.Local.sRet(V.Local.sRet.UBound)).DESCRIPTION!FIELDVAL,"DESCRIPTION_2",v.DataTable.dtInv(v.Local.sRet(V.Local.sRet.UBound)).DESCRIPTION_2!FIELDVAL,"DESCRIPTION_3",v.DataTable.dtInv(v.Local.sRet(V.Local.sRet.UBound)).DESCRIPTION_3!FIELDVAL)
+		f.Intrinsic.Control.EndIf
+		
+		'Quantity, Unit Price
+		f.Intrinsic.String.Build("PART='{0}' AND VENDOR='{1}'",v.DataTable.dt(v.Local.i).PART!FIELDVAL,v.Local.sVendor,v.Local.sSearch)
+		f.Data.DataTable.Select("dtVQT",v.Local.sSearch,v.local.sret)
+		f.Intrinsic.Control.If(v.Local.sRet.Trim,=,"***NORETURN***")
+		F.Intrinsic.Control.Else
+			f.Intrinsic.string.Split(v.Local.sRet,"*!*",v.Local.sRet)
+			F.Data.DataTable.SetValue("dt",v.Local.i,"Quantity",v.DataTable.dtVQT(v.Local.sRet(V.Local.sRet.UBound)).Quantity!Fieldval,"CurrentPrice",v.DataTable.dtVQT(v.Local.sRet(V.Local.sRet.UBound)).CurrentPrice!Fieldval)
+		F.Intrinsic.Control.EndIf
+		
+		'Purch UM, Inv
+		f.Intrinsic.String.Build("PART='{0}'",v.DataTable.dt(v.Local.i).PART!FIELDVAL,v.Local.sSearch)
+		f.Data.DataTable.Select("dtVQH",v.Local.sSearch,v.local.sret)
+		f.Intrinsic.Control.If(v.Local.sRet.Trim,=,"***NORETURN***")
+		F.Intrinsic.Control.Else
+			f.Intrinsic.string.Split(v.Local.sRet,"*!*",v.Local.sRet)
+			F.Data.DataTable.SetValue("dt",v.Local.i,"PUR_UM",v.datatable.dtVQH(v.Local.sRet(V.Local.sRet.UBound)).PUR_UM!fieldval)
+		F.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Next(v.Local.i)
+	gui.frmProcessing..Visible(false)	
+	gui.frmVendorRFQ.gsgcVendorParts.DataSource("dt")
+	gui.frmVendorRFQ.gsgcVendorParts.AddGridviewFromDatatable("gv","dt")
+	gui.frmVendorRFQ.gsgcVendorParts.SetColumnProperty("gv","Select","ReadOnly","False")
+	gui.frmVendorRFQ.gsgcVendorParts.SetGridviewProperty("gv","AllowAddRows","True")
+	gui.frmVendorRFQ.gsgcVendorParts.SetGridviewProperty("gv","AllowDeleteRows","True")
+	
+	f.Data.DataTable.Close("dtINV")
+	f.Data.DataTable.Close("dtVQT")
+	f.Data.DataTable.Close("dtVQH")
+F.Intrinsic.Control.endif
+
+Program.Sub.cmdBrowse_Click.End
+
+Program.Sub.frmVendorRFQ_UnLoad.Start
+f.ODBC.Connection!CONX.Close
+f.Intrinsic.Control.End
+
+Program.Sub.frmVendorRFQ_UnLoad.End
+
+Program.Sub.cmdCreateCSV_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sret.Declare(string)
+	v.Local.sFilePath.Declare(string)
+	v.Local.sFilePath.Set(v.Caller.FilesDir)
+	f.Intrinsic.String.Concat(v.Local.sFilePath,"\VendorRFQs",v.Local.sFilePath)
+	v.Local.sFileName.Declare(string)
+	v.Local.ddate.Declare(date)
+	v.Local.sDate.Declare(string)
+	f.Intrinsic.String.Format(v.Ambient.Date,"DDMMYYYY",v.Local.sDate)
+	f.Intrinsic.String.Concat(v.Local.sFilePath,"\CSV_Vendor_{0}_{1}.csv",v.Local.sFileName)
+	f.Intrinsic.String.Build(v.Local.sFileName,v.Screen.frmVendorRFQ!txtVendor.Text,v.Local.sDate,v.Local.sFileName)
+	v.Local.ssql.Declare(string)
+	v.Local.ssql.Set("SELECT NAME_VENDOR FROM V_VENDOR_MASTER WHERE VENDOR='{0}'")
+	f.Intrinsic.String.Build(v.Local.ssql,v.Screen.frmVendorRFQ!txtVendor.text,v.Local.ssql)
+	f.ODBC.Connection!CONX.executeandreturn(v.Local.ssql,v.Local.sret)
+	
+	v.Local.sheader.Declare(string)
+	f.Intrinsic.String.Concat("{0} Part,Part,UM, Quote Date, Vendor#, Seq, Description,Description 2,Description 3, Quantity, Current Price, New Price, Sort Code 1, Sort Code 2, Comments",v.Ambient.NewLine,v.Local.sheader)
+	f.Intrinsic.String.Build(v.Local.sheader,v.Local.sret.Trim,v.Local.sheader)
+	
+	f.Data.DataView.Create("dt","dvInvCrossRef")
+	f.Data.DataView.SetFilter("dt","dvInvCrossRef","Select=True")
+	f.Data.DataView.SetSort("dt","dvInvCrossRef","Part ASC, Description DESC")
+	
+	f.Data.DataView.ToString("dt","dvInvCrossRef",",",v.Ambient.NewLine,v.Local.sret)
+	f.Intrinsic.String.Concat(v.Local.sheader,v.Local.sret,v.Local.sret)
+	f.Intrinsic.File.String2File(v.Local.sFileName,v.Local.sret)
+	f.Intrinsic.task.ShellExec(v.Caller.Handle,"OPEN",v.Local.sFilePath,"","",5)
+f.Intrinsic.Control.Catch
+	f.Intrinsic.UI.Msgbox(v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.cmdCreateCSV_Click.End
+
+Program.Sub.dragdrop.Start
+f.Intrinsic.Control.Try
+V.Local.sFiles.Declare(String)
+V.Local.sret.Declare(string)
+v.Local.srows.Declare(string)
+v.Local.i.Declare(long)
+v.Local.svals.Declare(string)
+v.Local.shold.Declare(string)
+V.Local.ssql.Declare(string)
+v.Local.smfgpart.Declare(string)
+v.Local.spart.Declare(string)
+v.Local.sUMInv.Declare(string)
+v.Local.dquote.Declare(date)
+v.Local.squotedate.Declare(string)
+v.Local.sQuoteexpiration.Declare(string)
+v.Local.dQuoteExpiration.Declare(date)
+v.Local.sQuoteExpire.Declare
+v.Local.sVendorName.Declare(string)
+V.Local.Lobob.Declare(long)
+v.Local.sblank.Declare(string,"")
+v.Local.sdescription.Declare(string)
+v.Local.sum.Declare(string)
+v.Local.svendor.Declare(string)
+v.Local.sdisplay.Declare(string)
+v.Local.fQuantity.Declare(float)
+v.Local.fPrice.Declare(float)
+v.Local.iFill.Declare(long,0)
+v.Local.lRet.Declare(long)
+v.Local.sCode1.Declare
+v.Local.sCode2.Declare
+v.Local.sComment.Declare
+
+f.Intrinsic.UI.Msgbox("Update Alt Cost for these materials?","Update Alt Cost for these materials?",4,v.Local.lRet)
+
+v.Local.dquote.Set(v.Screen.frmVendorRFQ!dtpQuoteDate.Value)
+'v.Local.dQuoteExpiration.Set(v.Screen.frmVendorRFQ!dtpQuoteDate.Value)
+'f.Intrinsic.Date.DateAdd("D",30,v.Local.dQuoteExpiration,v.Local.dQuoteExpiration)
+
+f.Intrinsic.String.Format(v.Local.dquote,"YYMMDD",v.Local.squotedate)
+
+f.Intrinsic.Control.If(v.Screen.frmVendorRFQ!chkExpire.Value,<>,1)
+	f.Intrinsic.String.Format(v.Screen.frmVendorRFQ!dtpExpire.Value,"YYYYMMDD",v.Local.sQuoteExpire)
+f.Intrinsic.Control.Else
+	v.Local.sQuoteExpire.Set("00000000")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Global.sFile,=,"")
+	F.Intrinsic.String.Split(V.Args.Files,"*!*",V.Local.sFiles)
+f.Intrinsic.Control.Else
+	v.Local.sFiles.Set(v.Global.sFile)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.File.File2String(V.Local.sFiles,V.Local.SRET)
+f.Intrinsic.String.Split(v.Local.sret,v.Ambient.NewLine,v.Local.srows)
+f.Intrinsic.Math.Sub(v.Local.srows.UBound,1,v.Local.Lobob)
+gui.frmVendorRFQ..Visible(false)
+gui.frmProcessing..Show
+'F.Intrinsic.UI.InvokeWaitDialog("Uploading Vendor Quotes, Please Wait.")
+
+f.Intrinsic.Control.For(v.Local.i,1,v.Local.Lobob,1)
+
+	gui.frmProcessing.lblRecords.Caption(v.Local.i)
+	
+	f.Intrinsic.String.SplitCSV(v.Local.srows(v.Local.i),v.Local.svals)
+
+	v.Local.smfgpart.Set(v.Local.svals(0))
+	V.Local.spart.Set(V.Local.svals(1))
+	V.Local.SDESCRIPTION.Set(V.Local.svals(6))
+	v.Local.sUM.Set(v.Local.svals(2))
+	v.Local.svendor.Set(v.Local.svals(4))
+	v.Local.sdisplay.Set(v.Local.svals(15))
+	v.Local.fPrice.Set(v.Local.svals(11))
+	v.Local.sCode1.Set(v.Local.svals(12))
+	v.Local.sCode2.Set(v.Local.svals(13))
+	v.Local.sComment.Set(v.Local.svals(14))
+	
+	f.Intrinsic.Control.If(v.Local.svals(9).Trim,=,"")
+		v.Local.fquantity.Set("1")
+	f.Intrinsic.Control.Else
+		v.Local.fquantity.Set(v.Local.svals(9))
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Local.svals(3),<>,"")
+		f.Intrinsic.String.Format(v.Local.svals(3),"YYYYMMDD",v.Local.sQuoteexpiration)
+	f.Intrinsic.Control.Else
+		v.Local.sQuoteexpiration.Set(v.Local.sQuoteExpire)
+	f.Intrinsic.Control.EndIf
+	
+	'f.Intrinsic.Debug.ShowCallerInfo
+	f.Intrinsic.Control.If(v.global.sOldPart,=,v.Local.spart)
+	f.Intrinsic.Control.AndIf(v.global.foldquantity,<>,v.Local.fQuantity)
+	
+		F.Intrinsic.Control.If(V.Local.iFill,>=,9)
+		
+		f.Intrinsic.Control.Else
+			f.Intrinsic.Control.CallSub(fillcheck,"sNPart",v.Local.spart,"fNQuantity",v.Local.svals(9),"fNPrice",v.Local.fPrice)
+			f.Intrinsic.Math.Add(v.Local.iFill,1,v.Local.iFill)
+			f.Intrinsic.Control.Next(v.Local.i)
+		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Else
+	
+'		f.Intrinsic.Control.If(v.Local.i,<>,1)
+'			'It's 288 total in filler
+'			f.Intrinsic.Math.Mult(v.Local.iFill,32,v.Local.iFill)
+'			f.Intrinsic.Math.Sub(288,v.Local.iFill,v.Local.iFill)
+'			
+'			'f.Intrinsic.Debug.ShowCallerInfo
+'			f.Intrinsic.String.RPad(v.Local.sblank," ",v.Local.iFill,v.Local.shold)
+'			f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+'			'Sort Code 1
+'			f.Intrinsic.String.RPad(v.Local.sCode1," ",20,v.Local.shold)
+'			f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+'			'Sort Code 2
+'			f.Intrinsic.String.RPad(v.Local.sCode2," ",20,v.Local.shold)
+'			f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+'			'UM Selected
+'			f.Intrinsic.String.RPad("P"," ",1,v.Local.shold)
+'			f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+'			'Date Expiration
+'			f.Intrinsic.String.RPad(v.Local.sQuoteexpiration," ",8,v.Local.shold)
+'			F.Intrinsic.String.Concat(v.global.sBuildData,V.Local.shold,v.global.sBuildData)
+'			f.Intrinsic.String.Concat(v.global.sBuildData,v.Ambient.NewLine,v.global.sBuildData)
+'			v.Local.iFill.Set(0)
+'			
+'		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Local.lRet,=,6)
+		v.Local.ssql.Set("UPDATE INVENTORY_MSTR SET UM_PURCHASING='{0}', AMT_ALT_COST='{2}' WHERE PART='{1}'")
+		F.Intrinsic.String.Build(v.Local.ssql,v.Local.sUM.Trim,v.Local.spart.Trim,v.Local.fPrice,v.Local.ssql)
+		f.ODBC.Connection!CONX.execute(v.Local.ssql)
+	f.Intrinsic.Control.EndIf
+	
+	'Check if part exists in Global Shop first
+	f.Intrinsic.String.Build("SELECT UM_INVENTORY FROM V_INVENTORY_MSTR WHERE PART='{0}'",v.Local.spart,v.Local.ssql)
+	f.ODBC.Connection!CONX.executeandreturn(v.Local.ssql,v.Local.sret)
+	v.Local.sUMInv.Set(v.Local.sret)
+	
+'	f.Intrinsic.Control.If(v.Local.sret.Trim,=,"")
+'		f.Global.Inventory.CreatePart(v.Local.spart,V.Local.sum,v.Local.sdescription,"","00","P","","","","NOMAINT ")
+'		v.Local.ssql.Set("UPDATE INVENTORY_MSTR SET UM_PURCHASING='{0}', AMT_ALT_COST='{2}' WHERE PART='{1}'")
+'		F.Intrinsic.String.Build(v.Local.ssql,v.Local.sUM.Trim,v.Local.spart.Trim,v.Local.fPrice,v.Local.ssql)
+'		f.ODBC.Connection!CONX.execute(v.Local.ssql)
+'	f.Intrinsic.Control.EndIf
+	
+	'Update Alt Cost
+	f.Intrinsic.Control.If(v.Local.lRet,=,6)
+		v.Local.ssql.Set("UPDATE INVENTORY_MSTR SET UM_PURCHASING='{0}', AMT_ALT_COST='{2}' WHERE PART='{1}'")
+		F.Intrinsic.String.Build(v.Local.ssql,v.Local.sUM.Trim,v.Local.spart.Trim,v.Local.fPrice,v.Local.ssql)
+		f.ODBC.Connection!CONX.execute(v.Local.ssql)
+	f.Intrinsic.Control.EndIf
+
+	f.Intrinsic.Control.If(v.local.smfgpart.Trim,<>,"")
+		v.Local.ssql.set("SELECT PART FROM V_INV_CROSS_REF WHERE VENDOR='{0}' AND MFG_PART='{1}'")
+		f.Intrinsic.String.Build(v.Local.ssql,v.Local.svendor.Trim,v.Local.smfgpart.Trim,v.Local.ssql)
+		f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+		f.Intrinsic.Control.If(v.Local.sret.Trim,=,"")
+			v.Local.ssql.Set("SELECT NAME_VENDOR FROM V_VENDOR_MASTER WHERE VENDOR='{0}'")
+			f.Intrinsic.String.Build(v.Local.ssql,v.Local.svendor,v.Local.ssql)
+			f.ODBC.Connection!CONX.executeandreturn(v.Local.ssql,v.Local.sVendorName)
+			
+			f.Intrinsic.Control.If(v.Screen.frmVendorRFQ!chkExclude.Value,=,"0")
+				v.Local.ssql.Set("INSERT INTO INV_CROSS_REF (PART,VENDOR,MFG_PART,MFG_NAME,DESCRIPTION) VALUES('{0}','{1}','{2}','{3}','{4}')")
+				F.Intrinsic.String.Build(V.Local.ssql,v.Local.spart.Trim,v.Local.svendor.Trim,v.Local.smfgpart.Trim,v.Local.sVendorName,v.Local.sdescription.Trim,v.Local.ssql)
+				f.ODBC.Connection!CONX.execute(v.Local.ssql)
+			f.Intrinsic.Control.EndIf
+			
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.EndIf
+
+	'Part
+	f.Intrinsic.String.RPad(v.Local.spart," ",20,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'Vendor No
+	f.Intrinsic.String.RPad(v.Local.svendor," ",6,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'QuoteDate
+	f.Intrinsic.String.RPad(v.Local.squotedate," ",6,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'MFG Part No.
+	f.Intrinsic.String.RPad(v.Local.smfgpart," ",23,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'MFG Name
+	v.Local.ssql.Set("SELECT NAME_VENDOR FROM V_VENDOR_MASTER WHERE VENDOR='{0}'")
+	F.Intrinsic.String.Build(V.Local.ssql,V.Local.sVendor,v.Local.ssql)
+	F.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sVendorName)
+	f.Intrinsic.String.RPad(v.Local.sVendorName," ",23,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'um inv
+	f.Intrinsic.String.RPad(v.Local.sUMInv," ",2,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'UM Purch
+	f.Intrinsic.String.RPad(v.Local.sum," ",2,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'Conversion FActor
+	f.Intrinsic.String.RPad(v.Local.sblank," ",16,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'RFQ Number
+	f.Intrinsic.String.RPad(v.Local.sblank," ",6,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'Required By
+	f.Intrinsic.String.RPad(v.Local.sblank," ",8,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'filler 1
+	f.Intrinsic.String.RPad(v.Local.sblank," ",122,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	
+	'quantity 1
+	f.Intrinsic.String.RPad(v.Local.fQuantity," ",16,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'price 1
+	f.Intrinsic.String.RPad(v.Local.fPrice," ",16,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	
+	'Alt Price Filler
+	f.Intrinsic.String.RPad(v.Local.sblank," ",288,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'Sort Code 1
+	f.Intrinsic.String.RPad(v.Local.sCode1," ",20,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'Sort Code 2
+	f.Intrinsic.String.RPad(v.Local.sCode2," ",20,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'UM Selected
+	f.Intrinsic.String.RPad("P"," ",1,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'Date Expiration
+	f.Intrinsic.String.RPad(v.Local.sQuoteexpiration," ",8,v.Local.shold)
+	F.Intrinsic.String.Concat(v.global.sBuildData,V.Local.shold,v.global.sBuildData)
+	'Salesman
+	f.Intrinsic.String.RPad(v.Local.sblank," ",3,v.Local.shold)
+	F.Intrinsic.String.Concat(v.global.sBuildData,V.Local.shold,v.global.sBuildData)
+	'IncludesTax
+	f.Intrinsic.String.RPad("N"," ",1,v.Local.shold)
+	F.Intrinsic.String.Concat(v.global.sBuildData,V.Local.shold,v.global.sBuildData)
+	'Comments
+	f.Intrinsic.String.RPad(v.Local.sComment," ",255,v.Local.shold)
+	F.Intrinsic.String.Concat(v.global.sBuildData,V.Local.shold,v.global.sBuildData)
+	
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Ambient.NewLine,v.global.sBuildData)
+	
+	
+	v.global.sOldPart.Set(v.Local.spart)
+	v.global.foldquantity.Set(v.Local.fQuantity)
+	
+f.Intrinsic.Control.Next(v.Local.i)
+
+
+'f.Intrinsic.Debug.ShowCallerInfo
+gui.frmProcessing..visible(false)
+v.Local.sfilename.Declare(string)
+f.Intrinsic.String.Concat(v.Caller.FilesDir,"\VENDQUOT.TXT",v.Local.sfilename)
+f.Intrinsic.File.String2File(v.Local.sfilename,v.global.sBuildData)
+
+f.Intrinsic.UI.CloseWaitDialog
+f.Global.General.CallWrapperSync(50,"UPLVENQP/A")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.UI.Msgbox(v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+Program.Sub.dragdrop.End
+
+Program.Sub.FillCheck.Start
+	v.Local.shold.Declare(string)
+	'quantity 
+	f.Intrinsic.String.RPad(v.Args.fNQuantity," ",16,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	'price
+	f.Intrinsic.String.RPad(v.Args.fNPrice," ",16,v.Local.shold)
+	f.Intrinsic.String.Concat(v.global.sBuildData,v.Local.shold,v.global.sBuildData)
+	v.global.foldquantity.Set(v.Args.fNQuantity)
+	v.global.sOldPart.Set(v.args.sNpart)
+Program.Sub.FillCheck.End
+
+Program.Sub.trvImport_DoubleClick.Start
+v.Local.sFile.Declare
+
+f.Intrinsic.UI.ShowOpenFileDialog("","","",v.Local.sFile)
+f.Intrinsic.Control.If(v.Local.sFile,<>,"***CANCEL***")
+
+	v.Global.sFile.Set(v.Local.sFile)
+	f.Intrinsic.Control.CallSub(dragdrop)
+
+f.Intrinsic.Control.EndIf
+Program.Sub.trvImport_DoubleClick.End
+
+Program.Sub.Comments.Start
+${$0$}$Vendor Parts$}$SUPERVSR$}$10/02/2017 3:08:19 p.m.$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$rcole$}$20220304104904481$}$ZUe18EWXbmRoTBVoeWbrFXakeGdGvm0OU5oQjzlNRHe2K6Kn+6QV1oG6B2oI/QSV+liVNTVhFsI=
+Program.Sub.Comments.End
